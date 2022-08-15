@@ -1,4 +1,4 @@
-module decoder (
+module instraction_decoder (
     input          [31:0]   instr,
     output         [ 6:0]   Op,
     output         [ 4:0]   rd,
@@ -18,8 +18,8 @@ module decoder (
     assign rs2   = instr[24:20];
     assign F7    = instr[31:25];
     assign I     = {{21 {instr[31]}}, instr[30:20]};                                    //I_immediate
-    assign B     = {{20 {instr[31]}}, instr[7], instr[30:25], instr[11:8], 0};          //B_immediate
-    assign U     = {instr[31:12], 12'b0}                                                //U_immediate
+    assign B     = {{20 {instr[31]}}, instr[7], instr[30:25], instr[11:8], 1'b0};       //B_immediate
+    assign U     = {instr[31:12], 12'b0};                                               //U_immediate
 
     
 
