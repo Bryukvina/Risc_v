@@ -1,0 +1,18 @@
+module test_bench();
+    wire   clk = 0;
+    wire   rst_n = 0;
+    wire   reg_file; //for tb
+
+    top_file test(
+        .clk (clk),
+        .rst_n(rst_n),
+        .reg  (reg_file)
+    );
+
+    always #1 clk = ~clk;
+
+    initial begin
+        #5 rst_n = 1;
+    end
+    
+endmodule
